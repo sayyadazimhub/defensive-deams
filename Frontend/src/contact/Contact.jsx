@@ -1,60 +1,61 @@
-import React from "react";
-import { Phone, Mail, MapPin } from "lucide-react"
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { Mail, MapPin, Phone } from "lucide-react";
+
+const CONTACT_SECTIONS = [
+  {
+    icon: Phone,
+    title: "Call Us",
+    details: ["+91 982375 7163", "+91 907590 9896"],
+  },
+  {
+    icon: Mail,
+    title: "Write Us",
+    details: ["azimsayyad90@gmail.com"],
+  },
+  {
+    icon: MapPin,
+    title: "Head Office",
+    details: [
+      "Hydrabad Road, Vishnupuri",
+      "Regional Passport Office",
+      "Nanded, Maharashtra 431606",
+    ],
+  },
+];
 
 function Contact() {
   return (
-    <>
-    <Navbar/>
-    <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4">
-    <div className="md:py-20 pt-28 items-center justify-center text-center">
-    <div className="container mx-auto px-4 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Phone div */}
-        <div className="p-8 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-blue-50 p-4">
-              <Phone className="h-6 w-6 text-blue-500" />
+    <div className="mx-auto max-w-screen-2xl px-4 py-20 md:px-20">
+      <div className="text-center">
+        <h1 className="text-3xl font-semibold md:text-5xl">
+          Stay <span className="text-pink-500">connected</span> with us
+        </h1>
+        <p className="mt-4 text-slate-600 dark:text-slate-300">
+          Reach out any time—we are here to guide you through every defensive
+          strategy and alert.
+        </p>
+      </div>
+      <div className="mt-12 grid gap-8 md:grid-cols-3">
+        {CONTACT_SECTIONS.map(({ icon: Icon, title, details }) => (
+          <article
+            key={title}
+            className="rounded-2xl bg-white/70 p-8 text-center shadow-lg dark:bg-slate-800/80"
+          >
+            <div className="mb-6 flex justify-center">
+              <div className="rounded-full bg-blue-50 p-4 dark:bg-slate-700">
+                <Icon className="h-6 w-6 text-blue-500" />
+              </div>
             </div>
-          </div>
-          <h3 className="text-lg font-medium  mb-4">Call Us To</h3>
-          <p className="">+91 982375 7163</p>
-          <p className="">+91 907590 9896</p>
-        </div>
-
-        {/* Email div */}
-        <div className="p-8 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-blue-50 p-4">
-              <Mail className="h-6 w-6 text-blue-500" />
-            </div>
-          </div>
-          <h3 className="text-lg font-medium  mb-4">Write Us</h3>
-          <p className="">azimsayyad90@gmail.com</p>
-        </div>
-
-        {/* Address div */}
-        <div className="p-8 text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="rounded-full bg-blue-50 p-4">
-              <MapPin className="h-6 w-6 text-blue-500" />
-            </div>
-          </div>
-          <h3 className="text-lg font-medium mb-4">Head Office</h3>
-          <p className="">
-            Hydrabad Road, Vishnupuri,<br />
-            Regional Passport Office,<br />
-            Nanded, Maharashtra 431606
-          </p>
-        </div>
+            <h3 className="mb-4 text-lg font-medium">{title}</h3>
+            {details.map((detail) => (
+              <p key={detail} className="text-slate-600 dark:text-slate-200">
+                {detail}
+              </p>
+            ))}
+          </article>
+        ))}
       </div>
     </div>
-    </div>
-    </div>
-    <Footer/>
-    </>
-  )
+  );
 }
 
 export default Contact;

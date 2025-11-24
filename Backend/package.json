@@ -1,12 +1,12 @@
 {
-    "name": "bookstore",
+    "name": "defensive-deams-backend",
     "version": "1.0.0",
-    "description": "mern project",
+    "description": "Backend API for Defensive DEAMS",
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon index.js"
+        "dev": "nodemon index.js",
+        "start": "node index.js"
     },
     "repository": {
         "type": "git",
@@ -23,7 +23,9 @@
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.18.3",
-        "mongoose": "^8.2.2",
+        "mongoose": "^8.2.2"
+    },
+    "devDependencies": {
         "nodemon": "^3.1.0"
     }
 }
